@@ -21,6 +21,7 @@ const EditTicket = () => {
 
   useEffect(() => {
     fetchTicket(state);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = (e: FormEvent) => {
