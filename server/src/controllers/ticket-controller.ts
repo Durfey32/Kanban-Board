@@ -4,6 +4,7 @@ import { User } from '../models/user.js';
 
 // GET /tickets
 export const getAllTickets = async (_req: Request, res: Response) => {
+  console.log('getAllTickets');
   try {
     const tickets = await Ticket.findAll({
       include: [
@@ -14,11 +15,13 @@ export const getAllTickets = async (_req: Request, res: Response) => {
         },
       ],
     });
+    console.log("TICKETS",tickets);
     res.json(tickets);
   } catch (error: any) {
+    console.log(error,"Get all tickets",error);
     res.status(500).json({ message: error.message });
   }
-};
+};''
 
 // GET /tickets/:id
 export const getTicketById = async (req: Request, res: Response) => {

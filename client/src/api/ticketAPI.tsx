@@ -3,6 +3,7 @@ import { ApiMessage } from '../interfaces/ApiMessage';
 import Auth from '../utils/auth';
 
 const retrieveTickets = async () => {
+  console.log("GET all tickets",Auth.getToken());
   try {
     const response = await fetch(
       '/api/tickets/',
@@ -17,11 +18,12 @@ const retrieveTickets = async () => {
 
     if(!response.ok) {
       throw new Error('invalid API response, check network tab!');
-    }
+    } 
+    console.log("DAte ret",data)
 
     return data;
   } catch (err) {
-    console.log('Error from data retrieval: ', err);
+    console.log('Error from data retrieval: (get all tickets) ', err);
     return [];
   }
 };
@@ -63,7 +65,7 @@ const createTicket = async (body: TicketData) => {
       }
 
     )
-    const data = response.json();
+    const data = await response.json();
 
     if(!response.ok) {
       throw new Error('invalid API response, check network tab!');

@@ -11,12 +11,12 @@ const login = async (userInfo: UserLogin) => {
       body: JSON.stringify(userInfo),
     });
 
+    const data = await response.json();
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(`Error: ${errorData.message}`);
+    //  const errorData = await response.json();
+      throw new Error(`Error - LOGIN ${data}.message}`);
     }
 
-    const data = await response.json();
     return data;
     
   } catch (error) {

@@ -13,6 +13,8 @@ export const login = async (req: Request, res: Response) => {
     return res.status(401).json({ message: 'Authentication Failed' });
   }
 
+  console.log('user',user, 'password',username,password);
+
   const isValidPassword = await bcrypt.compare(password, user.password);
 
   if (!isValidPassword) {
@@ -23,7 +25,8 @@ export const login = async (req: Request, res: Response) => {
 
   const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
 
-  return res.json({ token });
+  console.log('token',token);
+  return res.json({ token,username });
 };
 
 const router = Router();
