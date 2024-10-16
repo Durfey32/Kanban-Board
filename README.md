@@ -26,7 +26,7 @@ Once logged in, users can:
 ## Tests
 You can view and interact with the live Kanban board at the following link:
 [Kanban Board](https://kanban-board-16wd.onrender.com)
-<video controls src="chrome_aPDld1oI4d.mp4" title="Title"></video>
+![alt text](Kanban_Board.gif)
 
 ## Questions?
 Feel free to reach out with any questions:
